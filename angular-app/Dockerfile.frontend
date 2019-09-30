@@ -17,7 +17,7 @@ RUN npm install -g @angular/cli
 COPY ./ ./
 
 # run tests
-RUN ng test --browsers ChromeHeadlessNoSandbox  --watch=false
+RUN ng test --browsers ChromeHeadlessNoSandbox --watch=false
 RUN ng e2e --port 4202
 
 RUN ng build --prod
