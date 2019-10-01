@@ -1,7 +1,7 @@
 FROM mysql
 
-ENV MYSQL_DATABASE=testdb MYSQL_ROOT_PASSWORD=root1234
-
+ENV MYSQL_DATABASE testdb 
+ENV MYSQL_ROOT_PASSWORD root1234
 COPY ./sql-scripts/ /docker-entrypoint-initdb.d/
 
 EXPOSE 3306:3306
