@@ -1,4 +1,4 @@
-# Docker 3 tier Architecture with ECS
+# Docker 3 tier Architecture with ECS/Kubernetes
 
 ## Frontend Angular
 ```
