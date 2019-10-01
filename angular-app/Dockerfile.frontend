@@ -26,7 +26,7 @@ COPY ./ ./
 
 FROM nginx:latest
 
-EXPOSE 80
+EXPOSE 80:80
 
 COPY --from=builder /app/dist/angular-app /usr/share/nginx/html
 
