@@ -1,10 +1,35 @@
-<mat-list role="list">
-  <mat-list-item role="listitem" *ngFor="let t of tasks">
-    <p>{{t[0]}} </p>
-    <p>{{t[1]}} </p>
-    <p>{{t[2]}} </p>
-    <p>{{t[3] | date }} </p>
-    
-  </mat-list-item>
-</mat-list>
-{{tasks}}
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>My Tasks</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<table mat-table [dataSource]='dataSource' class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="task">
+      <th mat-header-cell *matHeaderCellDef> Task Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.task}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      </ng-container>
+  
+    <ng-container matColumnDef="created_at">
+      <th mat-header-cell *matHeaderCellDef> Created At </th>
+      <td mat-cell *matCellDef="let element"> {{element.created_at | date}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
