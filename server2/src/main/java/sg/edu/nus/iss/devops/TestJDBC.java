@@ -11,10 +11,10 @@ public class TestJDBC {
 
         System.out.println("MySQL JDBC Connection Testing ~");
         
-        String SQL_SELECT = "Select * from TASKS";
+        String SQL_SELECT = "select id, friend_name, contact_no, email, created_at from friends";
 
         try (Connection conn = DriverManager.getConnection(
-                "jdbc:mysql://172.17.0.2:3306/testdb", "root", "password");
+                "jdbc:mysql://localhost:3307/testdb", "root", "root1234");
              PreparedStatement preparedStatement = conn.prepareStatement(SQL_SELECT)) {
 
             ResultSet resultSet = preparedStatement.executeQuery();

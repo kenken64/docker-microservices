@@ -55,4 +55,20 @@ public class Friends {
     public void setContactNo(String contactNo) {
         this.contactNo = contactNo;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return created_at;
+    }
+
+    public void setCreatedAt(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
 }
