@@ -14,4 +14,12 @@ export class AppService {
     getAllTasks(): Promise<any> {
         return this.httpClient.get(`${environment.api_url}tasks`).toPromise()
     }
+
+    getAllFriends(): Promise<any> {
+        return this.httpClient.get(`${environment.friends_api_url}`).toPromise()
+    }
+
+    getAllArtists(): Promise<any> {
+        return this.httpClient.get(`${environment.artists_api_url}`).toPromise()
+    }
 }

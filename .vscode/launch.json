@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TestJDBC",
+            "request": "launch",
+            "mainClass": "sg.edu.nus.iss.devops.TestJDBC",
+            "projectName": "spring-data-jpa-mysql"
+        }
+    ]
+}

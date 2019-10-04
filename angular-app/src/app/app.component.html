@@ -1,9 +1,14 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-        <span>My Tasks</span>
+        <span>The Demo App</span>
     </mat-toolbar-row>
 </mat-toolbar>
 
+<mat-toolbar>  
+  <mat-toolbar-row>
+    <span>Data set 1 (Node Js backend)</span>
+  </mat-toolbar-row>
+</mat-toolbar>
 <table mat-table [dataSource]='dataSource' class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
@@ -32,4 +37,78 @@
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-divider></mat-divider>
+  <mat-toolbar>  
+    <mat-toolbar-row>
+      <span>Data set 2 (Spring Boot backend)</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <table mat-table [dataSource]='friendsDataSource' class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Person's name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+  
+    <ng-container matColumnDef="contactNo">
+      <th mat-header-cell *matHeaderCellDef> Contact No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.contactNo}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="created_at">
+      <th mat-header-cell *matHeaderCellDef> Created At </th>
+      <td mat-cell *matCellDef="let element"> {{element.created_at | date}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+  </table>
+
+  <mat-divider></mat-divider>
+  <mat-toolbar>  
+    <mat-toolbar-row>
+      <span>Data set 3 (Python Flask backend)</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <table mat-table [dataSource]='artistsDataSource' class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id. </th>
+      <td mat-cell *matCellDef="let element"> 
+        {{element.id}} 
+      </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="bio">
+        <th mat-header-cell *matHeaderCellDef> Bio </th>
+        <td mat-cell *matCellDef="let element"> {{element.bio}} </td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns3"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns3;"></tr>
   </table>

@@ -10,8 +10,9 @@ import java.util.Map;
 public class FriendsController {
 
     @Autowired
-    FriendsRespository friendsRespository;
+    FriendsRepository friendsRespository;
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/friends")
     public List<Friends> index(){
         return friendsRespository.findAll();

@@ -19,7 +19,7 @@ INSERT INTO tasks (id, task, status, created_at) VALUES
 
 CREATE TABLE IF NOT EXISTS friends (
   id int(11) NOT NULL,
-  friend_name varchar(200) NOT NULL,
+  name varchar(200) NOT NULL,
   contact_no varchar(200) NOT NULL,
   email varchar(200) NOT NULL,
   created_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -28,9 +28,14 @@ CREATE TABLE IF NOT EXISTS friends (
 ALTER TABLE friends ADD PRIMARY KEY (id);
 ALTER TABLE friends MODIFY id int(11) NOT NULL AUTO_INCREMENT;
 
-INSERT INTO friends (id, friend_name, contact_no, email, created_at) VALUES
+INSERT INTO friends (id, name, contact_no, email, created_at) VALUES
 (1, 'Alexandra Mathew', '97734343', 'a@a.com', '2016-04-10 23:50:40'),
 (2, 'Alex Chia', '97734343', 'a@a.com', '2016-04-10 23:50:40'),
 (3, 'Sivakumar', '97734343', 'a@a.com', '2016-04-10 23:50:40'),
 (4, 'Lim Beng', '97734343', 'a@a.com', '2016-04-10 23:50:40'),
-(5, 'Ahmad Binte Alliyah', '97734343', 'a@a.com', '2016-04-10 23:50:50');
+(5, 'Ahmad Binte Alliyah', '97734343', 'a@a.com', '2016-04-10 23:50:50'),
+(6, 'Alexandra Mathew', '97734343', 'a@a.com', '2016-04-10 23:50:40'),
+(7, 'Alex Chia', '97734343', 'a@a.com', '2016-04-10 23:50:40'),
+(8, 'Sivakumar', '97734343', 'a@a.com', '2016-04-10 23:50:40'),
+(9, 'Lim Beng', '97734343', 'a@a.com', '2016-04-10 23:50:40'),
+(10, 'Ahmad Binte Alliyah', '97734343', 'a@a.com', '2016-04-10 23:50:50');

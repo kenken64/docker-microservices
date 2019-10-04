@@ -25,6 +25,10 @@ docker build -f server3/Dockerfile.backend
 docker build -f database/Dockerfile.db1
 ```
 
+```
+mongoimport --db testdb --jsonArray --file ./artists.json
+```
+
 ## Database 2 (MySQL)
 ```
 docker build -f database/Dockerfile.db2
