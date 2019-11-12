@@ -4,6 +4,7 @@ WORKDIR backend-svr2
 COPY ./ ./
 
 RUN apt-get update \
+    && apt-get install -y software-properties-common &&\
     && apt-get -y install openjdk-8-jdk \
     && rm -rf /var/lib/apt/lists/*
 

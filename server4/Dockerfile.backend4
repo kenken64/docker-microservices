@@ -1,7 +1,10 @@
 from ubuntu:latest
 
 WORKDIR backend-svr
-RUN apt update -y
+
+RUN apt-get update && \
+    apt-get install -y software-properties-common && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN apt install wget -y
 
