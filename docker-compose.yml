@@ -6,6 +6,10 @@ services:
     image: nginx # specify the directory of the Dockerfile
     ports:
       - "80:80" # specify port forewarding
+    depends_on:
+      - backendsvr
+      - backendsvr2
+      - backendsvr3  
     links:
       - backendsvr # link this service to the database service
       - backendsvr2
@@ -15,6 +19,8 @@ services:
     image: backendsvr # specify the directory of the Dockerfile
     ports:
       - "8080:8080" #specify ports forewarding
+    depends_on:
+      - mysql
     links:
       - mysql # link this service to the database service
 
@@ -22,6 +28,8 @@ services:
     image: backendsvr2 # specify the directory of the Dockerfile
     ports:
       - "8081:8081" #specify ports forewarding
+    depends_on:
+      - mysql
     links:
       - mysql # link this service to the database service
   
@@ -29,6 +37,8 @@ services:
     image: backendsvr3 # specify the directory of the Dockerfile
     ports:
       - "5000:5000" #specify ports forewarding
+    depends_on:
+      - mongodb
     links:
       - mongodb # link this service to the database service    
   
