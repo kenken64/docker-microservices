@@ -1,11 +1,14 @@
-FROM openjdk:8-jdk-alpine
-
+FROM ubuntu:latest
 WORKDIR backend-svr2
 
 COPY ./ ./
 
-RUN sudo apt update
-RUN sudo apt install curl -y
+RUN apt-get update \
+    && apt-get -y install openjdk-8-jdk \
+    && rm -rf /var/lib/apt/lists/*
+
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+ENV PATH $JAVA_HOME/bin:$PATH
 
 ARG MAVEN_VERSION=3.6.2
 ARG USER_HOME_DIR="/root"
