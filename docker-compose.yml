@@ -3,7 +3,7 @@ version: '2' # specify docker-compose version
 # Define the services/containers to be run
 services:
   angular: # name of the first service
-    build: nginx # specify the directory of the Dockerfile
+    image: nginx # specify the directory of the Dockerfile
     ports:
       - "80:80" # specify port forewarding
     links:
@@ -12,28 +12,28 @@ services:
       - backendsvr3
 
   backendsvr: #name of the second service
-    build: backendsvr # specify the directory of the Dockerfile
+    image: backendsvr # specify the directory of the Dockerfile
     ports:
       - "8080:8080" #specify ports forewarding
     links:
       - mysql # link this service to the database service
 
   backendsvr2: #name of the second service
-    build: backendsvr2 # specify the directory of the Dockerfile
+    image: backendsvr2 # specify the directory of the Dockerfile
     ports:
       - "8081:8081" #specify ports forewarding
     links:
       - mysql # link this service to the database service
   
   backendsvr3: #name of the second service
-    build: backendsvr3 # specify the directory of the Dockerfile
+    image: backendsvr3 # specify the directory of the Dockerfile
     ports:
       - "5000:5000" #specify ports forewarding
     links:
       - mongodb # link this service to the database service    
   
   mysql: # name of the third service
-    image: mysql # specify image to build container from
+    image: database/Dockerfile.mysql # specify image to build container from
     ports:
       - "3306:3306" # specify port forewarding
       - "33060:33060"    
