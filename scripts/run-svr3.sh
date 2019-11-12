@@ -1,2 +1,2 @@
 #!/bin/bash
-docker run -d --name mysql -p 3307:3306 -p 33061:33060 $1
+docker run -d --name backendsvr3 -p 5001:5000 $1

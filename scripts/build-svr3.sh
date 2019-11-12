@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -f server2/Dockerfile.backend2 -t backendsvr2 server2/
+docker build -f server3/Dockerfile.backend3 -t backendsvr3 server3/

@@ -1,0 +1,12 @@
+FROM python:3
+
+COPY ./ ./
+
+ENV FLASK_SECRET_KEY sdfdsf3424432dsffdsf
+ENV MONGODB_URL mongodb://localhost:27017/testdb
+
+RUN pip install -r requirements.txt
+
+EXPOSE 5001:5000
+
+CMD ['flask','run']
