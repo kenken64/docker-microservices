@@ -4,7 +4,8 @@ WORKDIR backend-svr2
 
 COPY ./ ./
 
-RUN apt install curl -y
+RUN sudo apt update
+RUN sudo apt install curl -y
 
 ARG MAVEN_VERSION=3.6.2
 ARG USER_HOME_DIR="/root"
