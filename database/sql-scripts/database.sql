@@ -39,3 +39,5 @@ INSERT INTO friends (id, name, contact_no, email, created_at) VALUES
 (8, 'Sivakumar', '97734343', 'a@a.com', '2016-04-10 23:50:40'),
 (9, 'Lim Beng', '97734343', 'a@a.com', '2016-04-10 23:50:40'),
 (10, 'Ahmad Binte Alliyah', '97734343', 'a@a.com', '2016-04-10 23:50:50');
+
+COMMIT WORK;

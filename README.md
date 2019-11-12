@@ -30,17 +30,13 @@ docker build -f server4/Dockerfile.backend
 ```
 docker build -f database/Dockerfile.mongodb
 ```
-
+## Mongo db import 
 ```
-mongoimport --db testdb --jsonArray --file ./artists.json
+$ docker exec -it <container id> sh
+$ mongoimport --db testdb --jsonArray --file ./artists.json
 ```
 
 ## Database 2 (MySQL)
 ```
 docker build -f database/Dockerfile.mysql
-```
-
-## Database 2 (Microsoft SQL)
-```
-docker build -f database/Dockerfile.mssql
 ```
