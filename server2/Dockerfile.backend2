@@ -6,6 +6,7 @@ COPY ./ ./
 RUN apt-get update \
     && apt-get install -y software-properties-common \
     && apt-get -y install openjdk-8-jdk \
+    && apt-get -y install curl \
     && rm -rf /var/lib/apt/lists/*
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
