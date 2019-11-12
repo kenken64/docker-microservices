@@ -1,4 +1,4 @@
-# Docker 3 tier Architecture with ECS/Kubernetes
+# Microservice Docker 
 
 ## Frontend Angular
 ```
@@ -20,9 +20,15 @@ docker build -f server2/Dockerfile.backend
 docker build -f server3/Dockerfile.backend
 ```
 
+## Backend 3 (DoNet - Web Service)
+```
+docker build -f server4/Dockerfile.backend
+```
+
+
 ## Database 1 (Mongodb)
 ```
-docker build -f database/Dockerfile.db1
+docker build -f database/Dockerfile.mongodb
 ```
 
 ```
@@ -31,5 +37,10 @@ mongoimport --db testdb --jsonArray --file ./artists.json
 
 ## Database 2 (MySQL)
 ```
-docker build -f database/Dockerfile.db2
+docker build -f database/Dockerfile.mysql
+```
+
+## Database 2 (Microsoft SQL)
+```
+docker build -f database/Dockerfile.mssql
 ```
