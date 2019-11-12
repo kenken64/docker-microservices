@@ -1,6 +1,9 @@
 from ubuntu:latest
 
 WORKDIR backend-svr
+RUN sudo apt update -y
+
+RUN sudo apt install wget -y
 
 RUN wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
 
@@ -8,11 +11,9 @@ RUN sudo dpkg -i packages-microsoft-prod.deb
 
 RUN sudo add-apt-repository universe
 
-RUN sudo apt install apt-transport-https
+RUN sudo apt install apt-transport-https -y
 
-RUN sudo apt update
-
-RUN sudo apt install dotnet-sdk-2.2
+RUN sudo apt install dotnet-sdk-2.2 -y
 
 COPY ./ ./
 
