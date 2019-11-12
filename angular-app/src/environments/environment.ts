@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   api_url: 'http://localhost:8080/api/',
   friends_api_url: 'http://localhost:8081/friends',
-  artists_api_url: 'http://localhost:8050/artists'
+  artists_api_url: 'http://localhost:5001/artists'
 };
 
 /*
