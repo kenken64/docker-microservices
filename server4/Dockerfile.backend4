@@ -15,7 +15,9 @@ RUN add-apt-repository universe
 
 RUN apt install apt-transport-https -y
 
-RUN apt install dotnet-sdk-2.2 -y
+RUN apt-get update
+
+RUN apt install dotnet-sdk-3.0 -y
 
 COPY ./ ./
 
