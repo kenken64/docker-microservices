@@ -33,7 +33,7 @@ services:
       - mongodb # link this service to the database service    
   
   mysql: # name of the third service
-    image: database/Dockerfile.mysql # specify image to build container from
+    image: mysql # specify image to build container from
     ports:
       - "3306:3306" # specify port forewarding
       - "33060:33060"    
