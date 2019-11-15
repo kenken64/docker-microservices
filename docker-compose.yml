@@ -1,49 +1,80 @@
-version: '2' # specify docker-compose version
+version: '3.5' # specify docker-compose version
 
 # Define the services/containers to be run
 services:
-  mysql: # name of the third service
-    image: mysql # specify image to build container from
+  mysql: # mysql image
+    build: 
+      context: ./database
+      dockerfile: Dockerfile.mysql # specify image to build container from
+    container_name: "mysql"
     ports:
       - "3306:3306" # specify port forewarding
-      - "33060:33060"    
+      - "33060:33060"
+    networks:
+      - some-net # default network
 
-  mongodb: # name of the third service
-    image: mongodb # specify image to build container from
+  mongodb: # mongo db 
+    container_name: "mongodb"   
+    build: 
+      context: ./database
+      dockerfile: Dockerfile.mongodb # specify image to build container from
     ports:
-      - "27017:27017" # specify port forewarding
-      
-  backendsvr: #name of the second service
-    image: backendsvr # specify the directory of the Dockerfile
+      - "27018:27017" # specify port forewarding
+    networks:
+      - some-net # default network
+
+  backendsvr: # node js express backend
+    container_name: "backendsvr"
+    build: 
+        context: ./server
+        dockerfile: Dockerfile.backend # specify image to build container from
     ports:
       - "8080:8080" #specify ports forewarding
     depends_on:
       - mysql
+    restart: always
     links:
       - mysql # link this service to the database service
+    networks:
+      - some-net # default network  
 
-  backendsvr2: #name of the second service
-    image: backendsvr2 # specify the directory of the Dockerfile
+  backendsvr2: # spring boot java backend
+    container_name: "backendsvr2"
+    build: 
+        context: ./server2
+        dockerfile: Dockerfile.backend2 # specify image to build container from
     ports:
       - "8081:8081" #specify ports forewarding
     depends_on:
       - mysql
+    restart: always
     links:
       - mysql # link this service to the database service
+    networks:
+      - some-net # default network
   
-  backendsvr3: #name of the second service
-    image: backendsvr3 # specify the directory of the Dockerfile
+  backendsvr3: # python flask backend
+    container_name: "backendsvr3"
+    build: 
+        context: ./server3
+        dockerfile: Dockerfile.backend3 # specify image to build container from
     ports:
-      - "5000:5000" #specify ports forewarding
+      - "5001:5000" #specify ports forewarding
     depends_on:
       - mongodb
+    restart: always
     links:
-      - mongodb # link this service to the database service    
+      - mongodb # link this service to the database service
+    networks:
+      - some-net # default network    
   
   angular: # name of the first service
-    image: nginx # specify the directory of the Dockerfile
+    container_name: "angular"
+    build: 
+        context: ./angular-app
+        dockerfile: Dockerfile.frontend # specify image to build container from
     ports:
-      - "80:80" # specify port forewarding
+      - "8082:80" # specify port forewarding
     depends_on:
       - backendsvr
       - backendsvr2
@@ -52,4 +83,10 @@ services:
       - backendsvr # link this service to the database service
       - backendsvr2
       - backendsvr3
+    networks:
+      - some-net # default network
+
+networks:
+  some-net:
+    driver: host
     

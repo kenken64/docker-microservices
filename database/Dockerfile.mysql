@@ -1,8 +1,10 @@
-FROM mysql
+FROM mysql:latest
 
 ENV MYSQL_DATABASE testdb 
+ENV MYSQL_USER root  
 ENV MYSQL_ROOT_PASSWORD root1234
-COPY ./sql-scripts/ /docker-entrypoint-initdb.d/
+ADD ./sql-scripts/database.sql /docker-entrypoint-initdb.d
+ADD mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 
 EXPOSE 3306:3306
-
+EXPOSE 33060:33060

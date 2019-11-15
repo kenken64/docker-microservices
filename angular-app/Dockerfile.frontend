@@ -11,14 +11,15 @@ COPY package.json ./
 
 ENV PATH /app/node_modules/.bin:$PATH
 
-RUN npm install
-RUN npm install -g @angular/cli
+RUN npm install -y
+RUN npm audit fix -y
+RUN npm install -g @angular/cli -y
 
 COPY ./ ./
 
 # run tests
-#RUN ng test --browsers ChromeHeadlessNoSandbox --watch=false
-#RUN ng e2e --port 4202
+RUN ng test --browsers ChromeHeadlessNoSandbox --watch=false
+RUN ng e2e --port 4202
 
 RUN ng build --prod
 
@@ -29,5 +30,3 @@ FROM nginx:latest
 EXPOSE 80:80
 
 COPY --from=builder /app/dist/angular-app /usr/share/nginx/html
-
-#CMD ["nginx", "-g", "daemon off;"]
