@@ -88,5 +88,5 @@ services:
 
 networks:
   some-net:
-    driver: host
+    driver: bridge
     
