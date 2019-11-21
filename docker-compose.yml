@@ -47,6 +47,10 @@ services:
       - "8081:8081" #specify ports forewarding
     depends_on:
       - mysql
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/testdb
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root1234  
     restart: always
     links:
       - mysql # link this service to the database service
