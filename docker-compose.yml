@@ -7,6 +7,8 @@ services:
       context: ./database
       dockerfile: Dockerfile.mysql # specify image to build container from
     container_name: "mysql"
+    volumes:
+      - ./mysqldata:/var/lib/mysql
     ports:
       - "3306:3306" # specify port forewarding
       - "33060:33060"
