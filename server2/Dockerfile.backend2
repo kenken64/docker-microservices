@@ -26,7 +26,9 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
 
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
-
+ENV SPRING_DATASOURCE_URL "jdbc:mysql://mysql:3306/testdb"
+ENV SPRING_DATASOURCE_USERNAME "root"
+ENV SPRING_DATASOURCE_PASSWORD "root1234"  
 COPY mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint.sh
 COPY settings-docker.xml /usr/share/maven/ref/
 
