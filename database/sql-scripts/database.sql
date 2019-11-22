@@ -20,6 +20,8 @@ INSERT INTO tasks (id, task, status, created_at) VALUES
 (4, 'Refactor Code', 1, '2016-04-10 23:50:40'),
 (5, 'Push to prod', 1, '2016-04-10 23:50:50');
 
+DROP TABLE IF EXISTS friends;
+
 CREATE TABLE IF NOT EXISTS friends (
   id int(11) NOT NULL,
   name varchar(200) NOT NULL,
@@ -27,7 +29,7 @@ CREATE TABLE IF NOT EXISTS friends (
   email varchar(200) NOT NULL,
   created_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
- 
+
 ALTER TABLE friends ADD PRIMARY KEY (id);
 ALTER TABLE friends MODIFY id int(11) NOT NULL AUTO_INCREMENT;
 

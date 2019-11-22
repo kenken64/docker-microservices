@@ -20,7 +20,7 @@ docker build -f server2/Dockerfile.backend
 docker build -f server3/Dockerfile.backend
 ```
 
-## Backend 3 (DoNet - Web Service)
+## Backend 4 (DotNet - Web Service)
 ```
 docker build -f server4/Dockerfile.backend
 ```
