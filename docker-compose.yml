@@ -21,7 +21,7 @@ services:
       context: ./database
       dockerfile: Dockerfile.mongodb # specify image to build container from
     volumes:
-      - ./dbpath:/app/data 
+      - ./dbpath:/data/db 
     ports:
       - "27018:27017" # specify port forewarding
     networks:
